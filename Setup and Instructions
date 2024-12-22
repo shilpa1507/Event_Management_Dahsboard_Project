@@ -1,0 +1,125 @@
+Here’s the complete documentation for the **Event Management Dashboard** project:
+
+---
+
+## **Event Management Dashboard Documentation**
+
+### **Introduction**
+The Event Management Dashboard simplifies the creation, management, and tracking of events. This full-stack application includes a Flask-based backend and a lightweight frontend with HTML, CSS, and JavaScript.  
+
+---
+
+### **Setup Instructions**
+
+#### **1. Backend Setup (Flask)**
+
+1. **Install Python and pip**  
+   - Download and install Python from the [official website](https://www.python.org/).  
+   - Ensure pip (Python's package installer) is included during installation.
+
+2. **Install Required Packages**  
+   Open your terminal and run:  
+   ```bash
+   pip install flask flask-cors
+   ```
+
+3. **Create Backend Script**  
+   - Create a file named `app.py` in your project directory.  
+   - Add the following code:
+
+
+
+4. **Run the Flask Server**  
+   - Navigate to the directory containing `app.py`.  
+   - Run the following command:  
+     ```bash
+     python app.py
+     ```
+   - The server will be running at `http://127.0.0.1:3000`.
+
+---
+
+#### **2. Frontend Setup**
+
+1. **Create Frontend Files**  
+   - Create the following files in your project directory:
+     - `index.html`
+     - `styles.css`
+     - `scripts.js`
+
+2. **Add HTML Code**  
+   Paste the following code into `index.html`:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Event Management Dashboard</h1>
+    <div id="dashboard"></div>
+    <script src="scripts.js"></script>
+</body>
+</html>
+```
+
+3. **Add CSS Code**  
+   Paste the following code into `styles.css`:
+```css
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+h1 {
+    text-align: center;
+}
+```
+
+4. **Add JavaScript Code**  
+   Paste the following code into `scripts.js`:
+```javascript
+fetch('http://127.0.0.1:3000/events')
+    .then(response => response.json())
+    .then(events => {
+        const dashboard = document.getElementById('dashboard');
+        dashboard.innerHTML = JSON.stringify(events, null, 2);
+    })
+    .catch(error => console.error('Error:', error));
+```
+
+5. **Run the Frontend**  
+   - Open `index.html` in a browser.
+
+---
+
+### **API Details**
+
+#### **Event Management APIs**
+1. **Create Event**
+   - **Endpoint:** `/events`
+   - **Method:** POST  
+   - **Request Body:**  
+     ```json
+     {
+       "name": "Event Name",
+       "description": "Event Description",
+       "location": "Location",
+       "date": "YYYY-MM-DD"
+     }
+     ```
+
+2. **Fetch Events**
+   - **Endpoint:** `/events`
+   - **Method:** GET  
+
+3. **Update Event**
+   - **Endpoint:** `/events/<event_name>`
+   - **Method:** PUT  
+
+4. **Delete Event**
+   - **Endpoint:** `/events/<event_name>`
+   - **Method:** DELETE  
