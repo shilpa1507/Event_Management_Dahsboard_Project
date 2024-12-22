@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Event Management Dashboard</h1>
+
+        <!-- Event Management Section -->
+        <div class="form-container">
+            <input type="text" id="eventName" placeholder="Event Name">
+            <input type="text" id="eventDescription" placeholder="Event Description">
+            <input type="text" id="eventLocation" placeholder="Event Location">
+            <input type="date" id="eventDate">
+            <button onclick="addEvent()">Add Event</button>
+        </div>
+        <ul id="eventList"></ul>
+
+        <!-- Event History Section -->
+        <h2>Event History</h2>
+        <ul id="eventHistoryList"></ul>
+
+        <!-- Attendee Management Section -->
+        <h2>Attendee Management</h2>
+        <div class="form-container">
+            <input type="text" id="attendeeName" placeholder="Attendee Name">
+            <input type="email" id="attendeeEmail" placeholder="Attendee Email">
+            <button onclick="addAttendee()">Add Attendee</button>
+        </div>
+        <ul id="attendeeList"></ul>
+
+        <!-- Task Tracker Section -->
+        <h2>Task Tracker</h2>
+        <div class="form-container">
+            <input type="text" id="taskEventName" placeholder="Event Name">
+            <input type="text" id="taskName" placeholder="Task Name">
+            <button onclick="addTask()">Add Task</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
